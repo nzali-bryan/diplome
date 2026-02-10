@@ -1,0 +1,112 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color:rgba(165, 192, 226, 0.432) ;
+}
+.recherche input{
+    background: transparent;
+    margin-left: 2%;
+    width: 80%;
+    color: rgb(35, 124, 240);
+    border-color: rgb(35, 124, 240);
+}
+.recherche input::placeholder{
+    color: rgb(35, 124, 240);
+}
+.recherche button{
+    width: 10%;
+    background: transparent;
+    font-size: 25px;
+    border: none;
+    margin-right: 10%;
+    margin-bottom: 10px;
+
+}
+.recherche{
+    background-color: rgba(35, 124, 240, 0.459);
+    border:  2px solid rgb(35, 124, 240);
+    width: 94%;
+    margin: 10px 3%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.recherche form{
+    display: grid;
+    grid-template-columns: 85% 15%;
+    grid-template-rows: 1fr;
+}
+.containeur{
+    width: 94%;
+    margin:  2px 3%;
+}
+.deco{
+    /* position: relative; */
+    width: 102%;
+    margin-left: -2%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 10px;
+    background-color: rgb(35, 124, 240);
+
+}
+.deco-input{
+    height: 5px;
+}
+.tete{
+    background-color: white;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+.fils-tete{
+    width: 98%;
+    margin: 2%;
+    padding-bottom: 2px;
+}
+input{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    width: 99%;
+    height: 30px;
+    margin: 5px 3% 20px;
+    margin-left: -1%;
+    font-size: 20px;
+    border-color: rgba(87, 84, 84, 0.322);
+    
+}
+select{
+    border-color: rgba(87, 84, 84, 0.322);
+    height: 40px;
+    width: 50%;
+    margin-left: 10%;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+button{
+    border:1px solid white;
+    background: rgb(35, 124, 240);
+    color: white;
+    cursor: pointer;
+    /* margin-top: 10px; */
+    width: 100%;
+    padding: 10px 10px 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+footer{
+    text-align: center;
+    background-color: rgb(207, 203, 203);
+    
+}

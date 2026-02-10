@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #31323b !important;
+}
+.containeur{
+    position: relative;
+    width: 380px;
+    height: 420PX;
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.containeur::before{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg,transparent,rgb(49, 80, 255),rgb(35, 124, 240));
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    
+}.containeur::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg,transparent,rgb(49, 80, 255),rgb(35, 124, 240));
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: 3s;
+}
+
+@keyframes animate{
+    100%{
+         transform: rotate(360deg);
+    }
+   
+}
+.formu{
+    position: absolute;
+    inset:3px;
+    border-radius:8px;
+    background: #252c3b;
+    z-index: 10;
+    padding: 50PX 40PX;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.formu h2{
+    text-align: center;
+    color:rgb(35, 124, 240);
+}
+.inputcon{
+    position:relative;
+    width:300px;
+    margin-top:35px;
+}
+.inputcon input{
+    width: 100%;
+    background: transparent;
+    border-color: rgb(35, 124, 240);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    color: rgb(35, 124, 240);
+    font-size: 20px;
+    padding: 20px 10px 10px;
+}
+.inputcon input::placeholder{
+    color:rgb(35, 124, 240);
+}
+.bouton{
+    border:1px solid white;
+    background: rgb(35, 124, 240);
+    color: white;
+    cursor: pointer;
+    margin-top: 50px;
+    width: 100%;
+    padding: 15px 10px 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.erreur{
+    color: red !important;
+    font-size: 15px;
+    animation: descend 0.8s ease-out;
+    -webkit-animation: descend 0.8s ease-out;
+}
+
+@keyframes descend {
+    from{
+        transform: translateY(-30px);
+        -webkit-transform: translateY(-30px);
+        -moz-transform: translateY(-30px);
+        -ms-transform: translateY(-30px);
+        -o-transform: translateY(-30px);
+        opacity: 0;
+}
+    to{
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        opacity: 5;
+}
+}
+
+@media screen and (max-width:380px) {
+    .containeur{
+        width: 90%;
+    }
+    .formu{
+        padding: 60px 5px;
+    }
+    .inputcon{
+        width: 99%;
+    }
+}
