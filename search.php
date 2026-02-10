@@ -1,48 +1,41 @@
 <?php
-    require_once 'connect.php';
-    if ($_SERVER['REQUEST_METHOD']==='POST'){
-        $nom=$_POST['nom'];
-        $MotDuNom=explode(' ',$nom);
-        print_r($MotDuNom);
-        #jdksgclwdvxcjb kls
-// Récupérer la recherche utilisateur
-$recherche = trim($nom);
+session_start();
+ require_once 'connect.php';
 
-// Séparer la recherche en mots (même s'il y a plusieurs espaces)
-// $mots = preg_split('/\s+/', $recherche);
-$mots=explode(' ',$nom);
-
-// Construire la requête SQL de base
-$sql = "SELECT * FROM enfantdechoeur WHERE 1=1";
-$params = [];
-
-// Ajouter un LIKE pour chaque mot
-foreach ($mots as $index => $mot) {
-    $sql .= " AND nom LIKE :mot$index";
-    $params[":mot$index"] = "%$mot%";  // Le % permet de chercher partout dans le nom
-    print_r($params);
-}
-
-
-$requete = $database->prepare($sql);
-$requete->execute($params);
-$resultats = $requete->fetchAll(PDO::FETCH_ASSOC);
-
-if ($resultats) {
-    $i=0;
-    foreach ($resultats as $row) {
-        echo $row['nom'] . " - " . $row['mention'] . "<br>";
-        $information[$i]=$row['nom'] . " - " . $row['mention'] .$row['chemin'];
-        $i=$i+1;
-       
+  if ($_SERVER['REQUEST_METHOD']==='POST'){
+    $nom=htmlspecialchars($_POST['nom']);
+    $MotDuNom=explode(' ',$nom);
+    $condition="";
+    for($i=0;$i<=5;$i++){
+        if (isset($MotDuNom[$i])){
+            if($i===0){
+                $condition="nom LIKE '%$MotDuNom[$i]%' ";
+            }else{
+                $condition=$condition . "AND nom LIKE '%$MotDuNom[$i]%'";
+            }
+        }else{
+            $i=$i+5;
+        }
     }
+   
 
-    header ("location: parchemins.php? message='$message'");
-} else {
-    echo "Aucun résultat trouvé.";
-}
+    $requete=$database->prepare("SELECT * FROM enfantdechoeur WHERE $condition ORDER BY id_Enfant");
+    $requete->execute();
+    $resultat=$requete->fetchAll(PDO::FETCH_ASSOC);
 
+    if ($resultat){
+        $_SESSION['info_diplome']=$resultat;
+        header("location: parchemins.php?");
     }else{
-        echo "données non reçues";
+        $_SESSION['erreur']="Aucun resultat pour ce Nom";
+        header("location: parchemins.php?");
     }
-?>
+    }else{
+    echo "désolé mais les données ne sont pas arrivées";
+  }
+
+
+    ?> 
+
+
+ 

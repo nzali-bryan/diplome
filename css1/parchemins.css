@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;
     background-color:rgba(165, 192, 226, 0.432) ;
+    width: 100vw;
 }
 .recherche input{
     background: transparent;
@@ -21,7 +22,19 @@ body{
     border: none;
     margin-right: 10%;
     margin-bottom: 10px;
+    padding: 20px;
 
+}
+.recherche button span{
+    position: relative;
+    margin-right: 20px;
+}
+.recherche h3{
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px;
+    margin-left: 2%;
 }
 .recherche{
     background-color: rgba(35, 124, 240, 0.459);
@@ -52,6 +65,25 @@ body{
     height: 10px;
     background-color: rgb(35, 124, 240);
 
+}
+.icons{
+    border: 4px !important;
+    color: rgb(35, 124, 240);
+    font-size: 30px;
+    width: 30px;
+    font-weight: 900;
+}
+.dwonload{
+    color: rgb(0, 110, 255);
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: 1fr;
+   
+    border-bottom: 5px;
+}
+.dwonload p{
+    display: inline;
 }
 .deco-input{
     height: 5px;

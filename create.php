@@ -5,8 +5,8 @@
     require_once 'FPDF/fpdf.php';
 
     if($_SERVER['REQUEST_METHOD']==='POST'){
-        $nom=$_POST['nom'];
-        $mention=$_POST['mention'];
+        $nom=ucwords($_POST['nom']) ;
+        $mention=ucwords($_POST['mention']);
         // echo $nom . "et a la mention " . $mention;
        
         // $resultat=$requete->execute();
@@ -24,16 +24,16 @@
         $pdf->SetFont('Arial','B',45);
         $pdf->SetTextColor(170, 112, 5);
         $pdf->SetXY(50,80);
-        $pdf->Cell(200,10,ucwords($nom),0,0,'C');
+        $pdf->Cell(200,10,$nom,0,0,'C');
 
         // Ajouter la mention
         $pdf->SetFont('Arial','I',18);
         $pdf->SetTextColor(170, 112, 5);
         $pdf->SetXY(1,103); 
-        $pdf->Cell(200,10,ucwords($mention),0,0,'C');
+        $pdf->Cell(200,10,$mention,0,0,'C');
 
         // Télécharger PDF
-        $pdf->Output('D','diplome_'.$nom.'.pdf');
+        $pdf->Output('D','diplome_'.ucwords($nom).'.pdf');
 
         // enregistrer le diplome
         $NomPdf= "diplome_".time().".pdf";

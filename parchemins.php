@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once 'connect.php';
 ?>
 <!DOCTYPE html>
@@ -8,16 +9,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parchemins</title>
     <link rel="stylesheet" href="css1/parchemins.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 <body>
     <section class="recherche">
         <form action="search.php" method="post">
             <input type="text" name="nom" required placeholder="Rechercher un Diplome">
             <button type="submit"><span>🔍</span></button>
+            <?php
+                if(isset ($_SESSION['erreur'])){
+                    $message=$_SESSION['erreur'];
+                    unset ($_SESSION['erreur']);
+                    echo "<h3>".$message."</h4>";
+                }           
+            ?>
+
         </form>
+    <?php
+
+            if(isset ($_SESSION['info_diplome'])){
+                $resultat=$_SESSION['info_diplome'];
+                unset($_SESSION['info_diplome']);
+
+                echo "
+
+                            <div class='dwonload'>";
+                                foreach($resultat as $info_ligne){
+                                    $chemin=$info_ligne['chemin'];
+                                    $nom=$info_ligne['nom'];
+                                    $mention=$info_ligne['mention'];
+                                    echo "<p>".$nom . "_". $mention . ".pdf</p>";
+                                    echo "<a href='$chemin'  download='$nom"."_"."$mention' ><i class='bi bi-download icons'></i></a>";
+                                }
+
+                echo "      </div>";
+            }
+    ?>
     </section>
     <section class="containeur">
-        
+
         <div class="tete">
             <div class="fils-tete">
                 <div class="deco"></div>
