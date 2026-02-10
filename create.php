@@ -21,16 +21,16 @@
         $pdf->Image('diplome.png', 0, 0, 297, 210); 
 
         // Ajouter le nom
-        $pdf->SetFont('Arial','B',50);
+        $pdf->SetFont('Arial','B',45);
         $pdf->SetTextColor(170, 112, 5);
-        $pdf->SetXY(50,78);
-        $pdf->Cell(200,10,$nom,0,0,'C');
+        $pdf->SetXY(50,80);
+        $pdf->Cell(200,10,ucwords($nom),0,0,'C');
 
         // Ajouter la mention
         $pdf->SetFont('Arial','I',18);
         $pdf->SetTextColor(170, 112, 5);
         $pdf->SetXY(1,103); 
-        $pdf->Cell(200,10,$mention,0,0,'C');
+        $pdf->Cell(200,10,ucwords($mention),0,0,'C');
 
         // Télécharger PDF
         $pdf->Output('D','diplome_'.$nom.'.pdf');

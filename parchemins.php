@@ -22,11 +22,11 @@
             <div class="fils-tete">
                 <div class="deco"></div>
 
-                <h3>CREATION DE PARCHEMINTS</h3>
-                <h4>Plateforme de création des parchements des Enfants de choeur de la paroisse  St PIE X</h4>
-                <p>remplisser les informations ci dessus pour générer votre parchemins</p>
+                <h3>CREATION DE PARCHEMINS</h3>
+                <h4>Plateforme de création des parchemins des Enfants de choeur de la paroisse  St PIE X</h4>
+                <p>remplisser les informations ci dessus pour générer votre parchemin</p>
                 <hr>
-                <p style="color:red;"><span class="" >*</span> indiquera une question requise</p>
+                <p style="color:red;"><span class="" >*</span> indiquera un champ requis</p>
             </div>
         </div>  
         <form action="create.php" method="POST">
@@ -34,14 +34,14 @@
                 <div class="fils-tete">
                     <div class="deco deco-input"></div><br>
                     <label for="nom"><span style="color: red;" >*</span>NOMS et PRENOMS</label>
-                    <input type="text" name="nom" requided placeholder="Noms & Prenoms">
+                    <input type="text" name="nom" required placeholder="Noms & Prenoms">
                 </div>
             </div>
             <div class="tete">
                 <div class="fils-tete">
                     <div class="deco deco-input"></div><br>
                     <label for="mention"><span style="color: red;" >*</span>MENTIONS</label>
-                    <select name="mention" id="">
+                    <select name="mention" id="" required>
                         <option value="PASSABLE">PASSABLE</option>
                         <option value="ASSEZ BIEN">ASSEZ BIEN</option>
                         <option value="BIEN">BIEN</option>

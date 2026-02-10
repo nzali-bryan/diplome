@@ -6,6 +6,7 @@ body{
 .recherche input{
     background: transparent;
     margin-left: 2%;
+    font-size: 20px;
     width: 80%;
     color: rgb(35, 124, 240);
     border-color: rgb(35, 124, 240);
